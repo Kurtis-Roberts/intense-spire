@@ -1,205 +1,1593 @@
-                                /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- */
+    /*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*/
+    
+    @import "materialize/components/color";
+    $primary-color: color("blue", "lighten-2") !default;
+    @import 'materialize';
+    @import 'jquery-ui';
+    @import "materialize/extras/nouislider";
+    @import 'slick';
+    @import 'slick-theme';
+    @import 'tooltipster.bundle.min';
+    @import 'select2';
+    @import 'introjs';
+    body {
+        margin: 0;
+        font-family: 'Lato', sans-serif;
+        color: #4a4a4a;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+    
+    main {
+        flex: 1 0 auto;
+    }
+    
+    .page-footer {
+        padding-top: 0px;
+        background-color: transparent;
+        color: #212121;
+    }
+    
+    .page-footer .footer-copyright {
+        color: #5085A5;
+        background: none;
+        font-weight: 400;
+        font-size: 12px;
+    }
+    
+    .card-image img {
+        height: 250px;
+        width: 250px;
+        background: #b2dfdb;
+    }
+    
+    .card-image2 img {
+        height: 250px;
+        width: 250px;
+        background: #bdbdbd;
+    }
+    
+    .slide-fix {
+        z-index: 1;
+        position: fixed;
+        margin-left: 10px;
+        top: 2%;
+    }
+    
+    // .round-image {
+    //     border-radius: 999px;
+    // }
+    .gamertag-name {
+        color: #D1D1D1;
+        font-size: 25px;
+    }
+    
+    .carousel {
+        height: 610px;
+        bottom: 100px;
+    }
+    
+    .transparent {
+        background: transparent;
+        border: none;
+    }
+    
+    .card {
+        width: 120%;
+    }
+    
+    .card-width-fix {
+        width: 100%!important;
+    }
+    
+    [class^="socicon-"],
+    [class*=" socicon-"] {
+        font-size: 30px;
+    }
+    
+    .action-button-fix {
+        margin-bottom: 60px;
+    }
+    
+    .modal-overlay {
+        background-color: white;
+    }
+    
+    .custom-card {
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .featured-video-fix {
+        margin-top: 10%;
+    }
+    
+    .parralax-1 {
+        background-image: url("http://www.biglittlegeek.com/wp-content/uploads/2015/09/destiny-wallpapers-hd-47-1024x640.png");
+        min-height: 100%;
+    }
+    
+    .parralax-2 {
+        background-image: url("http://www.biglittlegeek.com/wp-content/uploads/2015/09/destiny-wallpapers-hd-3-1024x640.jpg");
+        min-height: 100%;
+    }
+    
+    .parralax-3 {
+        background-image: url("http://www.biglittlegeek.com/wp-content/uploads/2015/09/destiny-wallpapers-hd-1-1024x576.jpg");
+        min-height: 100%;
+    }
+    
+    .parralax-4 {
+        background-image: url("https://images4.alphacoders.com/666/thumb-1920-666407.png");
+        min-height: 100%;
+    }
+    
+    .parralax-5 {
+        background-image: url("https://images3.alphacoders.com/716/thumb-1920-716777.jpg");
+        min-height: 100%;
+    }
+    
+    .parralax-3 {
+        position: relative;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        margin-left: -33.33%;
+        margin-right: -28%;
+        max-width: 162%;
+    }
+    
+    .parralax-2 {
+        position: relative;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 400px;
+        margin-left: -33.33%;
+        margin-right: -28%;
+        max-width: 134%;
+    }
+    
+    .parralax-1 {
+        position: relative;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 280px;
+        margin-left: -33.33%;
+        margin-right: -28%;
+        max-width: 140%;
+    }
+    
+    .parralax-4 {
+        position: relative;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 400px;
+        margin-left: -33.33%;
+        margin-right: -28%;
+        max-width: 162%;
+    }
+    
+    .parralax-5 {
+        position: relative;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 400px;
+        margin-left: -33.33%;
+        margin-right: -28%;
+        max-width: 162%;
+    }
+    
+    .white-space {
+        height: 400px;
+    }
+    
+    .logo-name {
+        color: white;
+        font-size: 71px;
+        position: relative;
+        padding-top: 100px;
+        padding-right: 180px;
+    }
+    
+    .nav-logo {
+        height: 100px;
+        width: 100px;
+    }
+    
+    .header-fix {
+        margin-top: 30%;
+    }
+    
+    .dropdown-content li>span {
+        font-size: 16px;
+        color: #424242;
+        display: block;
+        line-height: 22px;
+        padding: 14px 16px;
+    }
+    
+    .btn:hover,
+    .btn-large:hover {
+        background-color: #5085A5;
+        ;
+    }
+    
+    .btn,
+    .btn-large {
+        background-color: #5085A5;
+        ;
+    }
+    
+    .collapsible.popout {
+        position: relative;
+        padding: 5%;
+    }
+    
+    .preloader-wrapper.big.active {
+        position: relative !important;
+    }
+    
+    .no-js #loader {
+        display: none;
+    }
+    
+    .js #loader {
+        display: block;
+        position: absolute;
+        left: 100px;
+        top: 0;
+    }
+    
+    .se-pre-con {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: image-url("Preloader_3.gif") center no-repeat #fff;
+    }
+    
+    .pagination a li.active {
+        color: #fff;
+    }
+    
+    table.centered thead tr th,
+    table.centered tbody tr td {
+        text-align: center;
+        font-size: 11px;
+    }
+    
+    td,
+    th {
+        padding: 10px 5px;
+    }
+    
+    .centered {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    span.black-text {
+        word-wrap: break-word;
+        font-size: 12px;
+    }
+    
+    section {
+        display: block;
+    }
+    
+    .hero {
+        align-items: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .hero.is-dark {
+        margin-top: 0%;
+        color: #f5f5f5;
+        background-image: linear-gradient(141deg, #1f191a 0%, #363636 71%, #46403f 100%);
+    }
+    
+    .hero.is-medium .hero-body {
+        padding-bottom: 2rem;
+    }
+    
+    ul.tabs {
+        // z-index: 1;
+    }
+    
+    li.tab.post {
+        width: 32.3% !important;
+    }
+    
+    .tabs {
+        background-color: #212121;
+        margin-bottom: 4%;
+    }
+    
+    .tabs .tab a.active {
+        color: #f5f5f5;
+        font-size: 18px;
+        font-weight: 600;
+        // text-shadow: 1px 1px 3px #ffffff;
+    }
+    
+    .tabs .tab a {
+        color: #f5f5f5;
+        // font-size: 11px;
+        text-overflow: inherit;
+        font-size: 14px;
+        font-weight: 100;
+        // text-shadow: 1px 1px 3px #ffffff;
+    }
+    
+    .tabs .tab.disabled a,
+    .tabs .tab.disabled a:hover {
+        color: rgba(110, 118, 124, 0.7);
+        cursor: default;
+    }
+    
+    .title.hero {
+        color: #f5f5f5;
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1.125;
+        margin-left: 9%;
+        text-transform: uppercase;
+    }
+    
+    .subtitle {
+        font-size: 1.25rem;
+        font-weight: 300;
+        line-height: 1.25;
+        margin-left: 9%;
+    }
+    
+    .title,
+    .subtitle {
+        word-break: break-word;
+        margin-left: 9%;
+    }
+    
+    .hero.is-primary .subtitle {
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .title:not(.is-spaced)+.subtitle {
+        margin-top: -1.5rem;
+    }
+    
+    .notification {
+        background-color: #f5f5f5;
+        border-radius: 3px;
+        padding: 1.25rem 2.5rem 1.25rem 4.5rem;
+        position: relative;
+        // z-index: 1;
+    }
+    
+    .notification.is-primary {
+        background-color: #00d1b2;
+        color: #fff;
+    }
+    
+    .notification.is-warning {
+        background-color: #ffdd57;
+        color: rgba(0, 0, 0, 0.7);
+    }
+    
+    .notification.is-info {
+        background-color: #3273dc;
+        color: #fff;
+    }
+    
+    .notification.is-success {
+        background-color: #23d160;
+        color: #fff;
+    }
+    
+    .notification.is-danger {
+        background-color: #ff3860;
+        color: #fff;
+    }
+    
+    .notification:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+    
+    .delete {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background-color: rgba(10, 10, 10, 0.2);
+        border: none;
+        border-radius: 290486px;
+        cursor: pointer;
+        display: inline-block;
+        -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+        flex-grow: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        font-size: 1rem;
+        height: 20px;
+        max-height: 20px;
+        max-width: 20px;
+        min-height: 20px;
+        min-width: 20px;
+        outline: none;
+        position: relative;
+        vertical-align: top;
+        width: 20px;
+    }
+    
+    .delete:before {
+        height: 2px;
+        width: 50%;
+    }
+    
+    .delete:after {
+        height: 50%;
+        width: 2px;
+    }
+    
+    .delete:before,
+    .delete:after {
+        background-color: white;
+        content: "";
+        display: block;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+    }
+    
+    *:before,
+    *:after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+    
+    .notification>.delete {
+        position: absolute;
+        right: 0.5em;
+        top: 0.5em;
+    }
+    
+    .is-hidden {
+        display: none !important;
+    }
+    
+    .card-panel.grey.lighten-5.z-depth-1.hoverable {
+        max-height: 350px;
+    }
+    
+    .card-text {
+        color: #f5f5f5 !important;
+        font-weight: 600;
+    }
 
-@import "materialize/components/color";
-$primary-color: color("blue", "lighten-2") !default;
-$secondary-color: color("yellow", "base") !default;
-@import 'materialize';
-@import 'jquery-ui';
-@import "materialize/extras/nouislider";
-.card-image img {
-    height: 250px;
-    width: 250px;
-    background: #b2dfdb;
+    .home-card {
+        transition: box-shadow .25s;
+        padding: 24px;
+        margin: 0.5rem 0 1rem 0;
+        border-radius: 6px;
+        background-color: rgba(196, 194, 194, 0.22);
+        border: 1px solid #5085a5;
+    }
+
+    li.tab.card {
+        background: transparent;
+    }
+    
+    li.tab.post {
+        width: 33.3%;
+    }
+    
+    a.gamertag-name {
+        text-transform: uppercase;
+    }
+    
+    .round-image {
+        border-radius: 999px;
+        width: 140%;
+    }
+    
+    .stat-numbers {
+        color: #2bbbad;
+        font-weight: bold;
+        font-size: 40px;
+    }
+    
+    .stat-table-headers {
+        font-size: 20px;
+        color: #2bbbad;
+        font-weight: bold;
+    }
+    
+    .title {
+        font-size: 30px;
+        color: #616161;
+        font-weight: bold;
+    }
+    
+    .round-image2 {
+        border-radius: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 23px;
+        width: 60%;
+        border: #d1d1d1 solid 3px;
+    }
+    
+    // .modal .modal-content {
+    //     padding: 5px;
+    //     width: 85%;
+    // }
+    // Slick custom CSS
+    .scroller {
+        div {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+    }
+    
+    .slick-prev::before,
+    .slick-next::before {
+        color: #000;
+    }
+    
+    .slick-next {
+        right: -25px;
+    }
+    
+    .slick-prev {
+        left: -25px;
+    }
+    /* the slides */
+    
+    .slick-slide {
+        margin: 0 10px;
+    }
+    /* the parent */
+    
+    .slick-list {
+        margin: 0 -10px;
+    }
+    
+    .container {
+        // width: 100%;
+        max-width: 100%;
+    }
+    
+    .emblem-icon {
+        height: 50px;
+        width: 50px;
+        border-radius: 999px;
+    }
+    
+    .subclass-icon {
+        height: 50px;
+        width: 50px;
+        border-radius: 999px;
+        margin-top: 22px;
+    }
+    
+    .gamertag-title {
+        font-size: 240%;
+        color: white;
+        position: absolute;
+        margin-top: -21%;
+        margin-left: 18% !important;
+    }
+    
+    .gamertag-title2 {}
+    
+    .emblem-icon2 {
+        position: absolute;
+        margin-top: -29%;
+        width: 19%;
+        margin-left: -4%
+    }
+    
+    .class-title {
+        font-size: 15px;
+        color: #2bbbad;
+    }
+    
+    .card-title {
+        color: #2bbbad;
+        font-weight: bold;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 25px;
+    }
+    
+    .gun-icons {
+        width: 75px;
+        height: 75px;
+        border-radius: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        -webkit-box-shadow: 4px 6px 5px 0px rgba(189, 183, 189, 1);
+        -moz-box-shadow: 4px 6px 5px 0px rgba(189, 183, 189, 1);
+        box-shadow: 4px 6px 5px 0px rgba(189, 183, 189, 1);
+    }
+    
+    .gear-icons {
+        width: 75px;
+        height: 75px;
+        border-radius: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        -webkit-box-shadow: 4px 6px 5px 0px rgba(189, 183, 189, 1);
+        -moz-box-shadow: 4px 6px 5px 0px rgba(189, 183, 189, 1);
+        box-shadow: 4px 6px 5px 0px rgba(189, 183, 189, 1);
+    }
+    
+    .kd-title {
+        color: #2bbbad;
+        font-weight: bold;
+        font-size: 30px;
+    }
+    
+    .homepage-images {
+        width: 100%;
+        border-radius: 10px;
+        -webkit-box-shadow: 4px 6px 5px 0px rgba(189, 183, 189, 1);
+        -moz-box-shadow: 4px 6px 5px 0px rgba(189, 183, 189, 1);
+        box-shadow: 4px 6px 5px 0px rgba(189, 183, 189, 1);
+    }
+    
+    .top-break {
+        height: 100px;
+    }
+    
+    .center-icons {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .button-width-fix {
+        width: 95%;
+        margin-top: 12px;
+    }
+    
+    .emblem-background {
+        width: 111.5%;
+        border-top-right-radius: 10px;
+        margin-left: -25px;
+        border-top-left-radius: 10px;
+    }
+    
+    .emblem-background-size {
+        background-size: cover;
+        background-position: 0 top;
+        background-repeat: no-repeat;
+        border-top-right-radius: 1em;
+    }
+    
+    .shadow-effect {
+        border-radius: 10px;
+        -webkit-box-shadow: 4px 6px 5px 0px rgba(189, 183, 189, 1);
+        -moz-box-shadow: 4px 6px 5px 0px rgba(189, 183, 189, 1);
+        box-shadow: 4px 6px 5px 0px rgba(189, 183, 189, 1);
+        border-left: 2px solid #E8E6E8;
+        border-top: 2px solid #E8E6E8;
+        border-bottom: 1px solid #E8E6E8;
+        background: white;
+    }
+    
+    .ability-icons {
+        border-radius: 999px;
+        background-color: #2bbbad;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .mini-weapon-icons {
+        border-radius: 999px;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #2bbbad;
+    }
+    
+    //////PROGRESS BARS///////
+    .progress-circle {
+        background-color: #ddd;
+        border-radius: 50%;
+        display: inline-block;
+        height: 5rem;
+        margin: 4rem 2rem 0;
+        position: relative;
+        width: 5rem;
+    }
+    
+    .progress-circle:before {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 50%;
+        content: attr(data-progress) '%';
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        font-size: 1rem;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        top: 1rem;
+        bottom: 1rem;
+        -webkit-transition: -webkit-transform 0.2s ease;
+        transition: -webkit-transform 0.2s ease;
+        transition: transform 0.2s ease;
+        transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .progress-circle:after {
+        background-color: #0083ff;
+        border-radius: 50%;
+        content: '';
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .progress-circle:hover:before,
+    .progress-circle:focus:before {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    
+    #player-container {
+        height: 100%;
+        position: relative;
+        width: 100%;
+        height: 735px;
+        border-bottom-right-radius: 10px;
+        margin-top: 141px;
+    }
+    
+    #twitter-feed {
+        height: 600px;
+    }
+    
+    .row-fix {
+        padding-left: 15px;
+    }
+    
+    .sub-title {
+        color: #2bbbad;
+        font-weight: bold;
+    }
+    
+    .home-page-padding {
+        padding-right: 3%!important;
+        padding-left: 3%!important;
+    }
+    
+    .height-fix {
+        height: 790px;
+    }
+    
+    // .tabs {
+    //     margin-bottom: 4%;
+    //     background-color: #757575!important;
+    //     background-image: none;
+    // }
+    html {
+        background: url(greyzz.png);
+        background-attachment: fixed;
+    }
+    
+    .light-level {
+        margin-top: -31%;
+        margin-left: 78% !important;
+        color: #F5DC56;
+        z-index: 1;
+        font-size: 239%;
+    }
+    
+    .grim {
+        font-size: 45%!important;
+        color: white!important;
+        margin-top: -3%;
+    }
+    
+    .trials-map {
+        color: white;
+        font-size: 320%;
+        margin-top: -1%;
+    }
+    
+    .trials-modal-name {
+        color: white;
+        font-size: 380%;
+        margin-top: 5%!important;
+    }
+    
+    .home-page-buttons {
+        margin-top: 19%;
+        background-color: transparent;
+        border-radius: 15px;
+    }
+    
+    .hr-custom {
+        height: 10px;
+        opacity: 0.5;
+        background-color: #757575;
+        border-radius: 999px;
+        width: 100%;
+    }
+    
+    .home-page-button-custom {
+        width: 90%;
+        border-radius: 15px;
+    }
+    
+    .container .row {
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+    }
+    
+    .trials-row-fix {
+        margin-bottom: -10px;
+    }
+    
+    .slider .slides {
+        background-color: transparent;
+    }
+    
+    .slider .slides li img {
+        width: 75px;
+        height: 75px;
+        background-size: cover;
+    }
+    
+    .slider .indicators {
+        position: absolute;
+        text-align: center;
+        left: 0;
+        right: 0;
+        bottom: 226px;
+        margin: 0;
+        z-index: 1000;
+    }
+    
+    .black-gradient {
+        background-image: linear-gradient(141deg, #1f191a 0%, #363636 71%, #46403f 100%) !important;
+    }
+    
+    .light-gradient {
+        background-image: linear-gradient(141deg, #dfd8d9 0%, #dfd8d9 71%, #dfd8d9 100%);
+    }
+    
+    .btn-floating i {
+        background-color: #5085A5;
+    }
+    
+    .post-header-background {
+        background-image: url(site-header.jpg) !important;
+        background-position-y: 63%;
+        background-size: cover;
+    }
+    
+    .post-header {
+        height: 65px;
+        margin: -9.1%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    .post-tabs {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: 25%;
+        // background-image: url(void.png);
+    }
+    
+    // Mobile only branding
+    @media only screen and (max-width: 500px) {
+        .row.posts {
+            margin-left: -20% !important;
+            width: 125%;
+        }
+        .row.player-stats-collapse {
+            margin-left: -21% !important;
+            width: 140%;
+        }
+        .modal {
+            max-width: 100% !important;
+            height: 85% !important;
+            width: 100% !important;
+        }
+        .mobile-fix {
+            width: 135%;
+            margin-left: -18%;
+        }
+        .notification {
+            background-color: #f5f5f5;
+            border-radius: 3px;
+            padding: 1.25rem 2.5rem 1.25rem 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        canvas#weapon-breakdown-chart1 {
+            margin-left: 8%;
+        }
+        canvas#weapon-breakdown-chart2 {
+            margin-left: 8%;
+        }
+        canvas#weapon-breakdown-chart3 {
+            margin-left: 8%;
+        }
+        .card-text {
+            color: #212121 !important;
+            font-weight: 600;
+        }
+        .home-card {
+            border: none;
+        }
+    }
+    
+    .stat-heading {
+        display: block;
+        font-size: 11px;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+    }
+    
+    .stat-title {
+        color: #212121;
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 1.125;
+        margin-top: 0px;
+    }
+    
+    .navbar-item {
+        color: #D1D1D1;
+    }
+    
+    .side-nav li>a {
+        color: #D1D1D1;
+    }
+    
+    .teal-text {
+        color: #2AA8E8 !important;
+    }
+    
+    .btn,
+    .btn-large,
+    .btn-large {
+        background-color: #1E80A3;
+    }
+    
+    .tabs .indicator {
+        height: 0px;
+        background-color: #9694a9;
+    }
+    
+    .post-subheader {
+        background: #2c2c2c;
+        height: 30px;
+        margin-bottom: -40px;
+        margin-left: -9.1%;
+        margin-right: -9.1%;
+    }
+    
+    @media (min-height: 2000px) {
+        div#post-fire {
+            display: none !important;
+        }
+    }
+    
+    @media only screen and (min-width: 1824px) {
+        /* Styles */
+        .post-header {
+            height: 65px;
+            margin: -5.3%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            max-width: 115%;
+        }
+        .post-subheader {
+            background: #2c2c2c;
+            height: 30px;
+            margin-bottom: -40px;
+            margin-left: -5.4%;
+            margin-right: -5.4%;
+        }
+        .col.s3.center-align.large-break {
+            display: inline-grid;
+        }
+    }
+    
+    .gun-icons-trials {
+        width: 65px;
+        height: 65px;
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        -moz-box-shadow: 4px 6px 5px 0px #bdb7bd;
+        border: 3px solid grey;
+    }
+    
+    .background-trials-1 {
+        background: url(site-header.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        margin-top: 2%;
+    }
+    
+    .character-badge {
+        // color: #CEAE33;
+        border-color: transparent;
+        // border: 1px #CEAE33 solid;
+        text-transform: uppercase;
+        border-radius: 18px;
+        background-color: transparent;
+    }
+    
+    .chip {
+        border-radius: 3px;
+        line-height: 21px;
+        height: 22px;
+        font-size: 10px;
+        text-transform: uppercase;
+    }
+    
+    .input-field .prefix.active {
+        color: #21708E;
+    }
+    
+    input:not([type]):focus:not([readonly]),
+    input[type=text]:not(.browser-default):focus:not([readonly]),
+    input[type=password]:not(.browser-default):focus:not([readonly]),
+    input[type=email]:not(.browser-default):focus:not([readonly]),
+    input[type=url]:not(.browser-default):focus:not([readonly]),
+    input[type=time]:not(.browser-default):focus:not([readonly]),
+    input[type=date]:not(.browser-default):focus:not([readonly]),
+    input[type=datetime]:not(.browser-default):focus:not([readonly]),
+    input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+    input[type=tel]:not(.browser-default):focus:not([readonly]),
+    input[type=number]:not(.browser-default):focus:not([readonly]),
+    input[type=search]:not(.browser-default):focus:not([readonly]),
+    textarea.materialize-textarea:focus:not([readonly]) {
+        border-bottom: 1px solid #21708E;
+        box-shadow: 0 1px 0 0 #21708E;
+    }
+    /* line 61, /Users/bbolnick/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/materialize-sass-0.100.1/app/assets/stylesheets/materialize/components/forms/_input-fields.scss */
+    
+    input:not([type]):focus:not([readonly])+label,
+    input[type=text]:not(.browser-default):focus:not([readonly])+label,
+    input[type=password]:not(.browser-default):focus:not([readonly])+label,
+    input[type=email]:not(.browser-default):focus:not([readonly])+label,
+    input[type=url]:not(.browser-default):focus:not([readonly])+label,
+    input[type=time]:not(.browser-default):focus:not([readonly])+label,
+    input[type=date]:not(.browser-default):focus:not([readonly])+label,
+    input[type=datetime]:not(.browser-default):focus:not([readonly])+label,
+    input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label,
+    input[type=tel]:not(.browser-default):focus:not([readonly])+label,
+    input[type=number]:not(.browser-default):focus:not([readonly])+label,
+    input[type=search]:not(.browser-default):focus:not([readonly])+label,
+    textarea.materialize-textarea:focus:not([readonly])+label {
+        color: #21708E;
+    }
+    
+    .modal {
+        max-height: 85%;
+        max-width: 80%;
+    }
+    
+    div#rewards-modal {
+        width: 80%;
+    }
+    
+    .material-tooltip>span {
+        // color: #212121;
+        // font-size: 14px;
+    }
+    
+    .material-tooltip>.backdrop {
+        // background-color: #dbdada;
+    }
+    
+    .no-padding {
+        padding: 0 !important;
+    }
+    
+    .tooltip_templates {
+        display: none;
+    }
+    
+    .tooltipster-sidetip.tooltipster-noir.tooltipster-noir-customized .tooltipster-box {
+        background: #fafafa;
+        border: none;
+        border-radius: 3px;
+        box-shadow: 3px 2px 7px 0 rgba(0, 0, 0, 0.4);
+    }
+    
+    .tooltipster-sidetip.tooltipster-noir.tooltipster-noir-customized .tooltipster-content {
+        color: #212121;
+        padding: 12px;
+    }
+    
+    ul.tabs.tabs-fixed-width.post-form-tabs {
+        background-image: none;
+        background-color: #5085a5;
+        width: 107%;
+        margin: -3.5%;
+        margin-bottom: 4% !important;
+    }
+    
+    a.post-form-tabs.active {
+        color: #f5f5f5 !important;
+        font-size: 18px;
+        font-weight: 600;
+        text-shadow: none !important;
+    }
+    
+    a.post-form-tabs {
+        color: #f5f5f5 !important;
+        font-size: 14px;
+        font-weight: 100;
+        text-shadow: none !important;
+    }
+    
+    [type="checkbox"]:checked+label:before {
+        border-right: 2px solid #5085a5;
+        border-bottom: 2px solid #5085a5;
+    }
+    
+    .switch label input[type=checkbox]:checked+.lever:after {
+        background-color: #5085a5;
+    }
+    
+    .switch label input[type=checkbox]:checked+.lever {
+        background-color: rgba(80, 133, 165, 0.63);
+    }
+    
+    .noUi-target.noUi-horizontal .noUi-tooltip {
+        background-color: #21708e;
+    }
+    
+    .noUi-connect {
+        background: #21708e;
+    }
+    
+    span.select2.select2-container.select2-container--default.select2-container--focus {
+        width: 100%;
+    }
+    
+    ul.slick-dots {
+        bottom: -9px;
+    }
+    
+    .slick-prev {
+        left: 2px;
+        top: 57%;
+        z-index: 1;
+    }
+    
+    .slick-next {
+        right: 2px;
+        top: 57%;
+    }
+    
+    .slick-prev:before,
+    .slick-next:before {
+        font-family: FontAwesome;
+        line-height: 1;
+        color: #212121;
+        opacity: 0.65;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .slick-prev:before {
+        content: "\f053";
+    }
+    
+    [dir="rtl"] .slick-prev:before {
+        content: "\f054";
+    }
+    
+    [dir="rtl"] .slick-next {
+        left: -10px;
+        top: 70px;
+        right: auto;
+    }
+    
+    .slick-next:before {
+        content: "\f054";
+    }
+    
+    [dir="rtl"] .slick-next:before {
+        content: "\f053";
+    }
+    
+    .card-image {
+        width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .card-image-badges {
+        width: 95%;
+    }
+    
+    .card-video {
+        width: 350px;
+    }
+
+    .parallax-container .parallax img {
+        width: 100%;
+        height: auto;
+    }
+
+    
+.body-homepage {
+	padding: 0;
+	margin: 0 !important;
+	background-color: #212121;
+	font-family: 'Lato', serif;
+	color: #fff;
 }
 
-.card-image2 img {
-    height: 250px;
-    width: 250px;
-    background: #bdbdbd;
+#hero-homepage {
+    height: 800px;
+	overflow: hidden;
+	position: relative;
+}
+#content-homepage {
+    background: url(binding_dark.png);
+    background-attachment: fixed;
+}
+.layer-homepage {
+	background-position: bottom center;
+	background-size: auto;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 800px;
+	position: fixed;
+	z-index: -1;
+}
+
+#hero-mobile-homepage {
+	display: none;
+	background: url(war-zone.jpg) no-repeat center bottom / cover;
+	height: 320px;
+}
+
+.first-section-homepage {
+	padding: 50px 0 20px 0;
+}
+.text-header-homepage {
+	font-size: 50px;
+	text-align: center;
+}
+// h1 {
+// 	line-height: 120%;
+// 	margin-bottom: 30px;
+// }
+// p {
+// 	color: #ede0d5;
+// 	font-size: 18px;
+// 	line-height: 150%;
+// }
+
+#hero-homepage, .layer-homepage {
+	min-height: 800px;
+}
+
+.layer-bg-homepage {
+	background-image: url(layers-test-bg-only.png);
+	background-size: cover;
+	background-position-y: 0px;
+}
+.layer-1-homepage {
+	background-image: url(layers-test-ships.png);
+    background-position-x: 2px;
+    background-position-y: 83px;
+    background-size: 400px;
+		}
+.layer-2-homepage {
+	background-image: url(logo-words-only-white.png);
+	background-size: 500px;
+    background-position-x: 95%;
+	background-position-y: 13%;
+	opacity: 0.8;
+}
+.layer-3-homepage {
+	background-image: url('');
+
+		}
+.layer-4-homepage{
+	background-image: url(layers-test-chars.png);
+	// background-position-x: 250px;
+	background-position: bottom;
+	background-size: 1200px;
+		}
+.layer-overlay-homepage {
+	background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/272781/ilu_overlay.png');
+
+		}
+
+
+// Media Queries
+@media only screen and (max-width: 768px) {
+	#hero-homepage {
+		display: none;
+	}
+	#hero-mobile-homepage {
+		display: block;
+    }
+
+    #content-homepage {
+        background: url(greyzz.png);
+        background-attachment: fixed;
+    }
+    
+    .home-icon {
+        color: #88BBD6;        
+    }
+}
+
+.typed-header {
+    font-weight: 600; 
+    color: #f5f5f5;
+    margin: 13.14rem 0 0 66%;
+}
+.typed-header-mobile {
+    font-weight: 600; 
+    color: #212121;
+}
+
+.home-icon {
+    color: #5085a5;
+}
+
+@media only screen and (max-width: 1000px) {
+    .typed-header {
+        font-weight: 600; 
+        color: #f5f5f5;
+        margin: 13.14rem 0 0 45%;
+    }
+}
+
+a.player-tab-link {
+    border: 1px solid transparent;
+    // border-bottom: 1px solid #b0f2fd;
+    background-color: #212121;
+    color: #00d5d5 !important;
+}
+
+// ul.tabs.player-tabs {
+//     background-color: white;
+// }
+
+ul.tabs.player-tabs {
+    background-color: #424242;
+    margin-bottom: 0%;
 }
 
 
-.slide-fix {
-    margin-left: 20px;
-    font-size: 35px;
-    margin-top: 10px;
-    z-index: 1;
-    position: fixed;
-}
-
-.round-image {
-    border-radius: 999px;
-}
-
-.gamertag-name {
-    color: #F44336;
-    font-size: 25px;
-}
-
-.carousel {
-    height: 610px;
-    bottom: 100px;
-}
-
-.transparent {
-    background: transparent;
-    border: none;
-}
-
-.card {
-    width: 125%;
-}
-
-[class^="socicon-"],
-[class*=" socicon-"] {
-    font-size: 30px;
-}
-
-.action-button-fix {
-    margin-bottom: 60px;
-}
-
-.modal-overlay {
+a.player-tab-link.active {
     background-color: white;
+    // border-color: #dbdbdb;
+    border-bottom-color: transparent !important;
+    border-radius: 4px;
 }
 
-.custom-card {
-    max-width: 250px;
-    margin-left: auto;
-    margin-right: auto;
+.tabs-vertical {
+    .tabs {
+        height: auto;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        display: -webkit-flex;
+        display: flex;
+        min-height: 642px;
+    }
+
+    .tab {
+        width: 100%;
+
+        .active {
+            -moz-transition: border-color .5s ease;
+            -o-transition: border-color .5s ease;
+            -webkit-transition: border-color .5s ease;
+            transition: border-color .5s ease;
+            border-left: 3px solid #00d5d5;
+        }
+
+        :hover {
+            border-left: 3px solid #f5f5f5;
+        }
+    }
+
+    .indicator {
+        display: none !important;
+    }
 }
 
-.featured-video-fix {
-    margin-top: 10%;
-}
-
-.parralax-1 {
-    background-image: url("http://www.biglittlegeek.com/wp-content/uploads/2015/09/destiny-wallpapers-hd-47-1024x640.png");
-    min-height: 100%;
-}
-
-.parralax-2 {
-    background-image: url("http://www.biglittlegeek.com/wp-content/uploads/2015/09/destiny-wallpapers-hd-3-1024x640.jpg");
-    min-height: 100%;
-}
-
-.parralax-3 {
-    background-image: url("http://www.biglittlegeek.com/wp-content/uploads/2015/09/destiny-wallpapers-hd-1-1024x576.jpg");
-    min-height: 100%;
-}
-
-.parralax-3 {
-    position: relative;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
+li.tab.overview-icon {
+    background: url(trialsofthenine.png);
     background-size: cover;
-    height: 400px;
-    margin-left: -33.33%;
-    margin-right: -22%;
-    max-width: 155%;
-}
-
-.parralax-2 {
-    position: relative;
-    background-attachment: fixed;
     background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 400px;
-    margin-left: -33.33%;
-    margin-right: -22%;
-    max-width: 155%;
+}
+.tabs-vertical .tab {
+    width: 100%;
+    height: 85px;
 }
 
-.parralax-1 {
+.trials-player-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin-left: 0;
+    -moz-box-shadow: 4px 6px 5px 0px #bdb7bd;
+    border: 2px solid #9a9a9a;
+    padding-right: 0px;
     position: relative;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 350px;
-    margin-left: -33.33%;
-    margin-right: -22%;
-    max-width: 155%;
+    right: 9%;
+    top: 20%;
 }
 
-body {
-    background-color: white;
-}
-
-.white-space {
-    height: 400px;
-}
-
-.logo-name {
-    color: white;
-    font-size: 71px;
-    position: relative;
-    padding-top: 100px;
-    padding-right: 100px;
-}
-
-.nav-logo {
-    height: 100px;
-    width: 100px;
-}
-
-.header-fix {
-    margin-top: 30%;
-}
-
-.dropdown-content li > span {
-    font-size: 16px;
-    color: #424242;
-    display: block;
-    line-height: 22px;
-    padding: 14px 16px;
-}
-
-.btn:hover, .btn-large:hover {
-    background-color: #2bbbad;
-}
-
-.btn, .btn-large {
-    background-color: #26a69a;
-}
-
-.collapsible.popout {
-    position: relative;
-    padding: 5%;
-}
-
-.preloader-wrapper.big.active {
-    position: relative !important;
-}
-
-.pagination a li.active {
-    color: #fff;
-  }
-
-table.centered thead tr th, table.centered tbody tr td {
+.trials-card-text {
+    color: #f5f5f5;
     text-align: center;
-    font-size: 11px;
 }
 
-td, th {
-    padding: 10px 5px;
+.col.s3.trials-card-text {
+    min-height: 500px;
 }
 
-.centered{
+
+
+.col.s6.equip {
+    margin-top: 5%;
+}
+
+.gun-icons-trials-d2 {
+    width: 65px;
+    height: 65px;
+    border-radius: 6px;
     margin-left: auto;
     margin-right: auto;
+    -moz-box-shadow: 4px 6px 5px 0px #bdb7bd;
+    border: 1px solid #727272;
+}
+.trials-stat-title {
+    color: #00d5d5;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.125;
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+
+.trials-stat-heading {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: #01d4d4;
+}
+
+.trials-player-header {
+    margin: -1.3%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 0px;
+    margin-top: 0;
+    background-size: cover;
+    border-radius: 6px 6px 0px 0px;
+}
+
+.trials-player-name {
+    line-height: 55px;
+    font-weight: 400;
+    font-size: 1.1em;
+    vertical-align: middle;
+}
+
+.trials-player-light {
+    color: gold;
+    line-height: 0.5em;
+    font-weight: 300;
+    font-size: 0.9em;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.trials-player-subclass {
+    font-weight: 300;
+    font-size: 0.8em;
+}
+
+li.tab.profile-icon {
+    background: url(https://www.bungie.net/img/theme/destiny/bgs/bg_triumphs_nux.png?cv=3983621215&av=2340079736);
+    background-size: 80px 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+// .col.s3.trials-card-text.vdivide [class*='col-']:not(:last-child):after {
+//     background: #e0e0e0;
+//     width: 1px;
+//     content: "";
+//     display:block;
+//     position: absolute;
+//     top:0;
+//     bottom: 0;
+//     right: 0;
+//     min-height: 70px;
+//   }
+
+.introjs-helperNumberLayer {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: 9999999999 !important;
+    padding: 0px;
+    width: 25px;
+    height: 25px;
+    border-radius: 40%;
+}
+
+.introjs-tooltip {
+    left: 2px !important;
+}
+
+a.destinder_tutorial {
+    margin: 5px;
 }

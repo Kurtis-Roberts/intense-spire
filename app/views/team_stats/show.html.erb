@@ -1,0 +1,66 @@
+<% @character_races = {0 => "Titan", 1 => "Hunter", 2 => "Warlock"} %>
+<% @character_images = {
+  0 => "https://assets.tentonhammer.com/guides/attached_images/000/000/188/medium/destiny-titan-hero-image.jpg?1468380213", 
+  1 => "http://oyster.ignimgs.com/mediawiki/apis.ign.com/destiny/thumb/2/2a/Hunter.jpg/468px-Hunter.jpg", 
+  2 => "http://oyster.ignimgs.com/mediawiki/apis.ign.com/destiny/thumb/6/6b/Warlock.jpg/468px-Warlock.jpg"
+  }
+  %>
+
+  <section class="hero is-medium is-dark is-bold post-header-background hide-on-med-and-down" style="margin-bottom: 3%;">
+      <div class="hero-body">
+        <div class="container" style="margin: 0;">
+          <h1 class="title hero">
+            Trials of Osiris
+          </h1>
+          <h2 class="subtitle profile">
+            Team Lookup
+          </h2>
+        </div>
+      </div>
+    </section>
+  
+
+<div class="container" style="width: 90% !important;">
+  <div id="trials" >
+      <div style="display: none !important"> <%=  link_to "", team_stat_path, remote: true, id: "load-link" %></div>
+      <div id="trials-data">
+          <div class="row">
+            <div class="col s12 center-align" style="margin-top: 10%;">
+                <%= image_tag  "ajax-loader.gif" %>
+            </div>
+          </div> 
+      </div>
+    </div>
+</div>
+
+<!-- Search bar icon -->
+<div class="fixed-action-btn toolbar hide-on-mobile-only">
+  <a class="btn-floating btn-large teal lighten-1 modal-trigger"  href="#team-search-modal">
+    <i class="large material-icons">search</i>
+  </a>
+</div>
+
+
+  <!-- Team lookup Modal Structure -->
+  <div id="team-search-modal" class="modal bottom-sheet" style="max-width: 100%;">
+      <div class="modal-content">
+        <p>Trials Team Lookup</p>
+        <div class="row">
+          <%= form_for(TeamStat.new) do |f| %>
+            <div class="input-field">
+              <div class="row">
+                <div class="input-field col s3">
+                  <%= f.select :membership_type, [["Xbox", "1"], ["Playstation", "2"]]%>
+                </div>
+                <div class="input-field col s9">
+                    <%= f.text_field :display_name, class: "input", placeholder: "Enter Gamertag" %>
+                  </div>
+                <div class="hide-on-large-only">
+                  <%= f.submit "Search" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>

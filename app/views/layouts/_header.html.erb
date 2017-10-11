@@ -1,105 +1,276 @@
-
-<ul id="slide-out" class="side-nav">
+<!-- Slide out Nav -->
+<ul id="slide-out" class="side-nav" style="background-color: #21708E;">
   <% if user_signed_in? %>
-    <li class="center-align round-image">
-      <%= image_tag( current_user["profile_picture"], class:"round-image" ) %>
+    <div class="center-align" style="width: 95%;">
+      <%= link_to profile_path do %>
+        <%= image_tag( current_user["profile_picture"], class:"round-image2" ) %>
+      <% end %>
+    </div>
     </li>
     <li class="center-align gamertag-name">
-      <%=link_to current_user["display_name"], profile_path %>
+      <%= current_user["display_name"] %>
     </li>
+
     <li>
       <div class="nav-wrapper">
-        <form>
+        <%= form_tag(users_path, :method => "get", id: "search-form", :autocomplete => "off") do %>
           <div class="input-field">
-            <input id="search" type="search" required placeholder="Guardian Lookup">
-            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <%= search_field :search, params[:search], placeholder: "Guardian Lookup", class: "input", :options => {:autocomplete => 'off'} %>
+            <label class="label-icon" for="search"><i class="material-icons" style="color: #D1D1D1;">search</i></label>
             <i class="material-icons">close</i>
           </div>
-        </form>
+        <% end %>
       </div>
     </li>
     <li>
       <div class="divider"></div>
     </li>
+    <br>
     <li>
-      <%= link_to "Home",    root_path, class: "navbar-item" %>
+      <%= link_to root_path, class: "navbar-item" do %>
+        <i class="material-icons" style="color: #D1D1D1;">home</i> HOME
+      <% end %>
     </li>
     <li>
-      <%= link_to "Posts",   microposts_path, class: "navbar-item" %>
+      <%= link_to microposts_path, class: "navbar-item" do %>
+        <i class="material-icons" style="color: #D1D1D1;">message</i> LFG POSTS
+      <% end %>
     </li>
     <li>
-      <%= link_to "Logout", destroy_user_session_path, class: "navbar-item" %>
+      <%= link_to "#team-search-modal", class: "navbar-item modal-trigger" do %>
+        <i class="material-icons" style="color: #D1D1D1;">people</i> TRIALS TEAM LOOKUP
+      <% end %>
     </li>
+    <li>
+      <%= link_to "#badge-modal", class: "navbar-item modal-trigger" do %>
+        <i class="fa fa-shield fa-2x" style="color: #D1D1D1; margin-left: 2px; margin-right: 30px;"></i> ABOUT BADGES
+      <% end %>
+    </li>
+    <li>
+      <%= link_to destroy_user_session_path, class: "navbar-item" do %>
+        <i class="material-icons" style="color: #D1D1D1;">power_settings_new</i> LOGOUT
+      <% end %>
+    </li>
+    <li>
+      <div class="divider"></div>
+    </li>
+    <br>
+    <li>
+        <div class="row" style="width: 100%; margin-bottom: 0;">
+          <div class="col s3 ">
+              <a class="modal-trigger" href="#rewards-modal" data-turbolinks="false"><i class="material-icons" style="color: #D1D1D1;">card_giftcard</i></a>
+          </div>
+          <div class="col s3 left-align">
+              <a href="https://twitter.com/Destinderdotcom" target="_blank"><i class="fa fa-twitter fa-2x" style="color: #D1D1D1;"></i></a>
+          </div>
+          <div class="col s3 left-align">
+              <a href="https://github.com/destiny-aviato/destinder"><i class="fa fa-github fa-2x" style="color: #D1D1D1;"></i></a>
+          </div>
+          <div class="col s3 left-align">
+              <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HUYFMWSSJERU2" target="_blank"><i class="fa fa-paypal fa-2x" style="color: #D1D1D1;"></i></a>
+          </div>
+        </div>
+      </li>
     <% else %>
       <li>
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-item'  %>
+        <div class="user-view">
+          <div class="background">            
+          </div>
+          <span class="name" style="color:#D1D1D1;">Please sign in for more.</span>
+        </div>
       </li>
-    
-      <% end %>
+      <li>
+          <%= link_to root_path, class: "navbar-item" do %>
+            <i class="material-icons" style="color: #D1D1D1;">home</i> HOME
+          <% end %>
+        </li>
+      <li>
+        <%= link_to new_user_session_path, class: "navbar-item" do %>
+          <i class="material-icons" style="color: #D1D1D1;">power_settings_new</i> LOGIN
+        <% end %>
+      </li>
+      
+      <div>
+        <li><div class="divider"></div></li>
+        <li><a class="subheader" style="color:#D1D1D1;">Social</a></li>
+
+        <div class="row" style="width: 80%;">
+            <div class="col s3">
+                <a class="modal-trigger" href="#faq-modal" data-turbolinks="false"><i class="fa fa-info fa-2x" style="color: #D1D1D1;"></i></a>
+            </div>
+            <div class="col s3">
+                <a href="https://twitter.com/DestinyAviato" target="_blank"><i class="fa fa-twitter fa-2x" style="color: #D1D1D1;"></i></a>
+            </div>
+            <div class="col s3">
+                <a href="https://github.com/destiny-aviato/destinder"><i class="fa fa-github fa-2x" style="color: #D1D1D1;"></i></a>
+            </div>
+            <div class="col s3">
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HUYFMWSSJERU2" target="_blank"><i class="fa fa-paypal fa-2x" style="color: #D1D1D1;"></i></a>
+            </div>
+          </div>
+        </li>
+      </div>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- Header-Ad-R -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-2757454986564342"
+           data-ad-slot="8363564935"
+           data-ad-format="auto"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    <% end %>
 </ul>
 
-<link rel="stylesheet" href="https://s3.amazonaws.com/icomoon.io/114779/Socicon/style.css?rd5re8">
 
-
-
-<div class="fixed-action-btn toolbar">
-    <a class="btn-floating btn-large teal lighten-1">
-      <i class="large material-icons">info</i>
-    </a>
-
-    
-    <ul>
-      <li class="waves-effect waves-light"><a href="#!"><i class="socicon-imdb"></i></a></li>
-      <li class="waves-effect waves-light"><a href="#!"><i class="socicon-facebook"></i></a></li>
-      <li class="waves-effect waves-light"><a href="#!"><i class="socicon-github"></i></a></li>
-      <li class="waves-effect waves-light"><a href="#!"><i class="socicon-paypal"></i></a></li>
-    </ul>
+<!-- FAQ Modal -->
+<div id="faq-modal" class="modal">
+  <div class="modal-content">
+    <%= render 'home/faq'%>
   </div>
-
-
-  <div class="fixed-action-btn toolbar action-button-fix">
-    <a class="btn-floating btn-large teal lighten-1" href="#modal5">
-      <i class="large material-icons">search</i>
-    </a>
-
 </div>
 
-
-    
-  
-
-  <!-- Modal Structure -->
-  <div id="modal5" class="modal bottom-sheet">
-    <div class="modal-content">
-      <p>Guardian PVP Lookup</p>
-      <form>
-          <div class="input-field">
-            <input id="search" type="search" required placeholder="Enter Gamertag">
-            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
-          </div>
-        </form>
-
-        <p>Guardian Raid Lookup</p>
-      <form>
-          <div class="input-field">
-            <input id="search" type="search" required placeholder="Enter Gamertag">
-            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
-          </div>
-        </form>
-
+<!-- Rewards Modal Structure -->
+<div id="rewards-modal" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h3>Help improve the site by donating!</h3>
+    <div class="divider"></div>
+    <div class="section">
+      <h5>Any Amount</h5>
+      <p>If you donate any amount whatsoever, you get what is called "good feelings." Some cultures may call it good karma. Want to better understand this? Just watch "Trolls."</p>
+      <center><%= image_tag "trolls_dance.gif"%> </center>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    <div class="divider"></div>
+    <div class="section">
+      <h5>Donate $5 - $50</h5>
+      <p>Earn a donator badge! It looks pretty cool. We'll probably use the money to buy lunch or something.</p>
+      <p>Leave your gamertag in the notes so we can award you with the badge!</p>
+      <center>
+        <div class="chip tooltipped" style="color: #FAFAFA; background-color: #51de90;" data-position="top" data-delay="50" data-tooltip="Donated at least $100!" data-tooltip-id="ccd0e398-135b-166c-7afe-4f4934c65750">
+          Donator
+          <i class="material-icons" style="float: left; font-size: 14px; line-height: 23px; padding-right: 3px; margin-left: -8px;">attach_money</i>
+        </div>
+      </center>
+    </div>
+    <div class="divider"></div>
+    <div class="section">
+      <h5>Donate $50 - $100</h5>
+      <p>In addition to the aforementioned items, we'll send you a t-shirt! Who knows what it will look like. But hey, it's from us!</p>
+      <p>Just be sure to leave your email address in the notes so we can contact you about shipping. You'll also earn a "Silver" donator badge</p>
+      <center>
+        <div class="chip tooltipped" style="color: #FAFAFA; background-color: #B4B8BC;" data-position="top" data-delay="50" data-tooltip="Donated at least $100!" data-tooltip-id="ccd0e398-135b-166c-7afe-4f4934c65750">
+          Donator
+          <i class="material-icons" style="float: left; font-size: 14px; line-height: 23px; padding-right: 3px; margin-left: -8px;">attach_money</i>
+        </div>
+      </center>
+    </div>
+    <div class="divider"></div>
+    <div class="section">
+      <h5>Donate $100+</h5>
+      <p>In the words of Dwight Schrute, "You all owe me one." We'll do you a personal favor. Obviously, restrictions may apply.  </p>
+      <p>You'll also earn a "Gold" donator badge!</p>
+      <center>
+        <div class="chip tooltipped" style="color: #FAFAFA; background-color: #FFCC01;" data-position="top" data-delay="50" data-tooltip="Donated at least $100!" data-tooltip-id="ccd0e398-135b-166c-7afe-4f4934c65750">
+          Sponsor
+          <i class="material-icons" style="float: left; font-size: 14px; line-height: 23px; padding-right: 3px; margin-left: -8px;">attach_money</i>
+        </div>
+      </center>
+    </div>
+
+
+  </div>
+  <div class="modal-footer">
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HUYFMWSSJERU2" target="_blank" class="modal-action modal-close waves-effect btn-flat "><i class="fa fa-paypal fa-2x"></i> Donate</a>
+  </div>
+</div>
+
+<!-- menu icon -->
+<a id="nav-icon"class="btn-floating teal button-collapse slide-fix hide-on-small-only" href="" data-activates="slide-out">
+  <i class="material-icons" style="color: #f5f5f5;">menu</i>
+</a>
+
+
+
+
+<div class="navbar-fixed hide-on-med-and-up" style="background-color: #21708E;">
+  <nav style="background-color: #21708E;">
+    <div class="nav-wrapper">
+    <!-- menu icon -->
+    <a id="mobile-nav-icon" class="button-collapse" style="border-radius: 0;" href="" data-activates="slide-out">
+        <i class="material-icons" style="color: #D1D1D1;">menu</i>
+    </a>
+    </div>
+  </nav>  
+</div>
+
+ <!-- Team lookup Modal Structure -->
+ <div id="team-search-modal" class="modal bottom-sheet" style="max-width: 100%;">
+    <div class="modal-content">
+      <p>Trials Team Lookup</p>
+      <div class="row">
+        <%= form_for(TeamStat.new) do |f| %>
+          <div class="input-field">
+            <div class="row">
+              <div class="input-field col s3">
+                <%= f.select :membership_type, [["Xbox", "1"], ["Playstation", "2"]]%>
+              </div>
+              <div class="input-field col s9">
+                  <%= f.text_field :display_name, class: "input", placeholder: "Enter Gamertag" %>
+                </div>
+              <div class="hide-on-large-only">
+                <%= f.submit "Search" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 
+     <!-- Modal Structure -->
+     <div id="badge-modal" class="modal" style="width: 80%; height: 75%;" >
+        <div class="modal-content">
+          <h3>Badge-Ography</h3>
+          <hr>
+          <%= render "shared/badgeography" %>
+        </div>
+      </div>
   
-
- 
-
-  
-
-
-<a href="" data-activates="slide-out" class="button-collapse"><i class="material-icons slide-fix">menu</i></a>
+      <% users = featured_users %>
+      <div id="featured-players-modal" class="modal" style="width: 80%; height: 75%;" >
+          <div class="modal-content">
+            <h3>Featured Players</h3>
+            <hr>
+            <div class="row">
+                <table class="bordered centered highlight">
+                    <thead>
+                        <tr>
+                            <th>Gamertag</th>
+                            <th>Platform</th>
+                            <th>Badges</th>
+                        </tr>
+                    </thead>
+                
+                    <tbody>
+    
+                        <% users.each do |user| %>
+                        <tr>
+                            <td><%= link_to user.display_name, user_path(user.id) %></td>
+                            <% platform = user.api_membership_type == "1" ? "Xbox" : "PS4" %>
+                            <td><%= platform %></td>
+                            <td>
+                                <% user.badges.each do |badge| %>                
+                                <div class="chip tooltipped" style='<%= badge.custom_fields[:color] %> padding: 0 0px 0 11px;' data-position="top" data-delay="50" data-tooltip="<%= badge.description %>">
+                                <%= badge.custom_fields[:icon].html_safe %>
+                                </div>                
+                            <% end %>
+                            </td>
+                        </tr>
+                        <% end %>                  
+                    </tbody>
+                </table>
+    
+            </div>
+          </div>
+        </div>

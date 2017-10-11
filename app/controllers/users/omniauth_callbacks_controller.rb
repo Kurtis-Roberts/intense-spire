@@ -4,22 +4,30 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   # You should also create an action method in this controller like this:
   def bungie
+    Rails.logger.info '----------------------------------------------------------------------'
+    Rails.logger.info "Received OAUTH request, sending redirect_uri with value: #{ENV['REDIRECT_URL']}"
+    Rails.logger.info request.env['omniauth.auth'].to_s
+    @user = User.from_omniauth(request.env['omniauth.auth'])
 
-    @user = User.from_omniauth(request.env["omniauth.auth"])
-    
     if @user.persisted?
       @user.remember_me = true
 
-      sign_in_and_redirect @user, :event => :authentication
+      if @user.badges == []
+        @user.add_badge(5) if @user.id <= 550
+      end
 
-      set_flash_message(:notice, :success, :kind => 'Bungie') if is_navigational_format?
+      sign_in_and_redirect @user, event: :authentication
+
+      # set_flash_message(:notice, :success, :kind => 'Bungie') if is_navigational_format?
     else
-      session["devise.bungie_data"] = request.env["omniauth.auth"]
-
+      session['devise.bungie_data'] = request.env['omniauth.auth']
+      puts 'new user!'
       redirect_to root_path
+      flash.delete(:notice)
     end
+  rescue StandardError => e
+    redirect_to application_error_path
   end
-
 
   # More info at:
   # https://github.com/plataformatec/devise#omniauth
@@ -31,6 +39,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   # GET|POST /users/auth/twitter/callback
   def failure
+    Rails.logger.info '----------------------------------------------------------------------'
+    Rails.logger.info "Received OAUTH request, sending redirect_uri with value: #{ENV['REDIRECT_URL']}"
+    Rails.logger.info request.env['omniauth.auth'].to_s
     redirect_to root_path
   end
 

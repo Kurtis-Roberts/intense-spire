@@ -1,204 +1,307 @@
 <% info = get_stats("too") %>
 
+<% username = @user.nil? ? @player_stat.display_name : @user.display_name %>
+
 <% if info.nil? %> 
   <div class="container games">
     ERROR: n00b!  NO TRIALS STATS FOUND FOR THIS PLAYER
   </div>
-<% else %> 
-  <div class="container">      
-    <div class=stat-scroller>
-      <% info.each do |x| %>
+<% else %>  
+ 
+<div class="scroller">
+<% info.each_with_index do |x, index| %>
 
 
-<div class="card"><!--Crucbile Card-->
-    <div class="card-image waves-effect waves-block waves-light card-image">
-      <img src=<%= @character_images[x["Character Type"]] %> alt="Image">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4"><h1 class="title stat-name-fix center"><%=  @character_races[x["Character Type"]]%></h1><span class="stat-numbers"><%= x["Character Stats"]["K/D Ratio"] %></span><i class="material-icons right">more_vert</i></span>
-      <br>
-      <div class="row"><!--footer columns-->
-        <div class="col s4 center-align">
-        <img src=<%= x["Character Items"]["Subclass"]["Item Icon"] %> alt="Image">
-        </div>
-        <div class="col s4 center-align">
-        <a href="" class="btn tooltipped btn-floating pulse red" data-position="bottom" data-tooltip="Some Other Crap"><i class="material-icons">chat_bubble_outline</i></a>
-        </div>
-        <div class="col s4 center-align">
-        <a href="" class="btn tooltipped btn-floating pulse red" data-position="bottom" data-tooltip="Some Other Crap"><i class="material-icons">view_carousel</i></a>
-        </div>
-      </div><!--End of Footer Columns-->
-      
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Player Stats<i class="material-icons right">close</i></span>
-      <p>
-      <table>
-        
-          <tr>
-              <th>Year KD</th>
-              <th><%= x["Character Stats"]["K/D Ratio"] %></th>
-          
-          </tr>
-        
-
-        <tbody>
-          <tr>
-            <td>Week KD</td>
-            <td>1.45</td>
-            
-          </tr>
-          <tr>
-            <td>ELO</td>
-            <td><%= x["Character Stats"]["ELO"] %></td>
-            
-          </tr>
-          <tr>
-            <td>Streak</td>
-            <td>+5</td>
-            
-          </tr>
-        </tbody>
-      </table>
-      
-      
-      </p>
-    </div>
-  </div><!--END OF CARD-->
+<div class="shadow-effect" style="padding-top: 10px;"><!--OPEN FIRST CHARACTER--> 
 
 
+        <!--OPEN GAMERTAG INFORMATION-->
 
-    <%end%>  
-    </div>    
-  </div>
-<% end %>
-
-
-
-
-
-
-
-
-<!--OLD CARD
-
-        <div class="card">
-          <div class="card-image card-image-fix">
-            <figure class="image is-4by3">
-              <img src=<%= @character_images[x["Character Type"]] %> alt="Image">
-            </figure>
-          </div>
-          <div class="card-content" style="padding: 0;">
-            <div class="media" style="padding: 5% 5% 0% 5%">
-              <div class="columns">
-                <div class="column is-2">
-                  <figure class="image is-48x48 subclass-image-fix round-image center">
-                    <img src=<%= x["Character Items"]["Subclass"]["Item Icon"] %> alt="Image">
-                  </figure>
-                </div>
-                <div class="column is-7 center">
-                <h1 class="title stat-name-fix center"><%=  @character_races[x["Character Type"]]%></h1>
-                </div>
-                <div class="column is-3 center stat-numbers">
-                  <span class="stat-numbers"><%= x["Character Stats"]["K/D Ratio"] %></span>
-                </div>
-              </div>
-            </div>
-            <hr>
-            
-                
-            <ul class="collapsible" data-collapsible="expandable">
-                <li>
-                  <div class="collapsible-header active"><i class="fa fa-address-card-o" aria-hidden="true"></i>Stats</div>
-                  <div class="collapsible-body"><table class="center full-width">
-                      <tbody class="center">
-                      <tr class="center ability-text">
-                        <th class="center">ELO</th>
-                        <th class="center">Week KD</th>
-                        <th class="center">Flawless</th>
-                        <th class="center">Streak</th>
-                      </tr>   
-                      <tr class="center">
-                        <td class="center"><%= x["Character Stats"]["ELO"] %></td>
-                        <td class="center">-</td>
-                        <td class="center">-</td>
-                        <td class="center">-</td>
-                      </tr>
-                      </tbody>
-                    </table></div>
-                </li>
-                <li>
-                  <div class="collapsible-header active"><i class="fa fa-superpowers" aria-hidden="true"></i>Abilities</div>
-                  <div class="collapsible-body"><div class="columns is-mobile">
-                      <div class="column">
-                        <small class="ability-text">Armor</small>
-                          <progress class="progress is-info" value=<%= x["Character Stats"]["Armor"] %> max="10"></progress>
-                          <small class="ability-text">Agility</small>
-                          <progress class="progress is-info" value=<%= x["Character Stats"]["Agility"] %> max="10"></progress>
-                          <small class="ability-text">Recovery</small>
-                          <progress class="progress is-info" value=<%= x["Character Stats"]["Recovery"] %> max="10"></progress>
-                        </div>
-                      
-                      <div class="column">
-                        <small class="ability-text">Discipline</small>
-                        <progress class="progress is-info" value=<%= x["Character Stats"]["Discipline"] %> max="300"></progress>
-                        <small class="ability-text">Strength</small>
-                        <progress class="progress is-info" value=<%= x["Character Stats"]["Strength"] %> max="300"></progress>
-                        <small class="ability-text">Intellect</small>
-                        <progress class="progress is-info" value=<%= x["Character Stats"]["Intellect"] %> max="300"></progress>
-                      </div>
-                    </div></div>
-                </li>
-                <li>
-                  <div class="collapsible-header active"><i class="fa fa-shield" aria-hidden="true"></i>Equipment</div>
-                  <div class="collapsible-body"><div class="columns is-mobile">
-                      <div class="column gear">
-                        <figure class="image is-64x64 round-image">
-                          <img src=<%= x["Character Items"]["Primary Weapon"]["Item Icon"] %>>
-                        </figure>
-                      </div>
-                      <div class="column gear">
-                        <figure class="image is-64x64 round-image">
-                          <img src=<%= x["Character Items"]["Secondary Weapon"]["Item Icon"] %>>
-                        </figure>
-                      </div>
-                      <div class="column gear">
-                          <figure class="image is-64x64 round-image">
-                            <img src=<%= x["Character Items"]["Heavy Weapon"]["Item Icon"] %>>
-                          </figure>
-                      </div>
-                      <div class="column gear">
-                          <figure class="image is-64x64 round-image">
-                            <img src=<%= x["Character Items"]["Artifact"]["Item Icon"] %>>
-                          </figure>
-                      </div>
+            <div class="row row-alignment-trials">
+                    <div class="col s3"><span class="valign-wrapper left-align subclass-fix-trials"><img class="subclass-icon tooltipped" data-position="bottom" data-delay="50" data-tooltip="<%= x["Character Items"]["Subclass"]["Item Name"] %>" src=<%= x["Character Items"]["Subclass"]["Item Icon"] %> alt=""></span></div>
+                    <div class="col s7 valign-wrapper left-align"><span class="gamertag-trials flow-text"><%= username %></span></div>
+                    <div class="col s2 kd-align-fix-trials">
+                       <span class="kd-trials center-align flow-text"><%= x["character_stats"]["kd_ratio"] %></span><br>
+                       <span class="character-type-trials flow-text"><%=  @character_races[x["character_type"]]%></span>
                     </div>
-                    <div class="columns is-mobile">
-                        <div class="column gear">
-                          <figure class="image is-64x64 round-image">
-                            <img src=<%= x["Character Items"]["Helmet"]["Item Icon"] %>>
-                          </figure>
-                        </div>
-                        <div class="column gear">
-                          <figure class="image is-64x64 round-image">
-                            <img src=<%= x["Character Items"]["Gauntlets"]["Item Icon"] %>>
-                          </figure>
-                        </div>
-                        <div class="column gear">
-                            <figure class="image is-64x64 round-image">
-                              <img src=<%= x["Character Items"]["Chest Armor"]["Item Icon"] %>>
-                            </figure>
-                        </div>
-                        <div class="column gear">
-                            <figure class="image is-64x64 round-image">
-                              <img src=<%= x["Character Items"]["Leg Armor"]["Item Icon"] %>>
-                            </figure>
-                        </div>
-                      </div></div>
-                </li>
-              </ul>
-              </div>
-        </div>
-        -->
+            </div>
+
+
+        <!--CLOSE GAMERTAG INFORMATION-->
+
+
+
+        <!--OPEN EMBLEM INFORMATION-->
+
+
+                <div class="row container-fix-trials"><!--OPEN PLAYER CARD ROW-->
+
+                    <div class="col s12 container-fix-trials"><img class="emblem-background-trials z-depth-4" src=<%= x["Character Items"]["emblem_background"] %> alt=""></div><!--CLOSE EMBLEM CARD ROW-->
+                
+                </div><!--CLOSE PLAYER CARD ROW-->
+
+        <!--CLOSE EMBLEM INFORMATION-->
+
+
+
+
+
+                        <div class="slider">
+                            <ul class="slides">
+
+                            
+                            <li><!--OPEN GUN SLIDE-->
+                                
+
+                                        <!--OPEN GUNS INFORMATION-->
+
+                                <div class="row trials-row-fix"><!--OPEN GUN NAMES ROW-->
+                                    <div class="col s12"><!--OPEN FIRST COLUMN-->
+                                        <div class="row"><!--OPEN NESTED ROW-->
+                                            <div class="col s4 weapon-name-trials center-align gun-name-trials truncate"><%= x["Character Items"]["Primary Weapon"]["Item Name"] %></div>
+                                            <div class="col s4 weapon-name-trials center-align gun-name-trials truncate"><%= x["Character Items"]["Secondary Weapon"]["Item Name"] %></div>
+                                            <div class="col s4 weapon-name-trials center-align gun-name-trials truncate"><%= x["Character Items"]["Heavy Weapon"]["Item Name"] %></div>
+                                        </div><!--CLOSE NESTED ROW-->
+                                    </div><!--CLOSE FIRST COLUMN-->
+                                </div><!--CLOSE GUN NAMES ROW-->
+
+
+                                
+                                
+                                
+                                <div class="row"><!--OPEN GUN PICTURES ROW-->
+                                    <div class="col s12"><!--OPEN FIRST COLUMN-->
+                                        <div class="row"><!--OPEN NESTED ROW-->
+                                            <div class="col s4 weapon-container"><img class="gun-icons-trials tooltipped" data-position="right" data-delay="50" data-tooltip="<%= x["Character Items"]["Primary Weapon"]["Item Name"] %>" src=<%= x["Character Items"]["Primary Weapon"]["Item Icon"] %> alt=""></div>
+                                            <div class="col s4 weapon-container"><img class="gun-icons-trials tooltipped" data-position="right" data-delay="50" data-tooltip="<%= x["Character Items"]["Secondary Weapon"]["Item Name"] %>" src=<%= x["Character Items"]["Secondary Weapon"]["Item Icon"] %> alt=""></div>
+                                            <div class="col s4 weapon-container"><img class="gun-icons-trials tooltipped" data-position="right" data-delay="50" data-tooltip="<%= x["Character Items"]["Heavy Weapon"]["Item Name"] %>" src=<%= x["Character Items"]["Heavy Weapon"]["Item Icon"] %> alt=""></div>
+                                        </div><!--CLOSE NESTED ROW-->
+                                    </div><!--CLOSE FIRST COLUMN-->
+                                </div><!--CLOSE GUN PICTURES ROW-->
+
+
+                        <!--CLOSE GUNS INFORMATION-->
+                                
+                            </li><!--CLOSE GUN SLIDE-->
+
+
+
+
+                            <li><!--OPEN GEAR SLIDE-->
+
+
+                                     <!--OPEN GEAR INFORMATION-->
+
+                                <div class="row trials-row-fix"><!--OPEN GEAR NAMES ROW-->
+                                    <div class="col s12"><!--OPEN FIRST COLUMN-->
+                                        <div class="row"><!--OPEN NESTED ROW-->
+                                            <div class="col s4 weapon-name-trials center-align gun-name-trials truncate"><%= x["Character Items"]["Helmet"]["Item Name"] %></div>
+                                            <div class="col s4 weapon-name-trials center-align gun-name-trials truncate"><%= x["Character Items"]["Gauntlets"]["Item Name"] %></div>
+                                            <div class="col s4 weapon-name-trials center-align gun-name-trials truncate"><%= x["Character Items"]["Chest Armor"]["Item Name"] %></div>
+                                        </div><!--CLOSE NESTED ROW-->
+                                    </div><!--CLOSE FIRST COLUMN-->
+                                </div><!--CLOSE GEAR NAMES ROW-->
+
+
+                                
+                                
+                                
+                                <div class="row"><!--OPEN GEAR PICTURES ROW-->
+                                    <div class="col s12"><!--OPEN FIRST COLUMN-->
+                                        <div class="row"><!--OPEN NESTED ROW-->
+                                            <div class="col s4 weapon-container"><img class="gun-icons-trials tooltipped" data-position="right" data-delay="50" data-tooltip="<%= x["Character Items"]["Helmet"]["Item Name"] %>" src=<%= x["Character Items"]["Helmet"]["Item Icon"] %> alt=""></div>
+                                            <div class="col s4 weapon-container"><img class="gun-icons-trials tooltipped" data-position="right" data-delay="50" data-tooltip="<%= x["Character Items"]["Gauntlets"]["Item Name"] %>" src=<%= x["Character Items"]["Gauntlets"]["Item Icon"] %> alt=""></div>
+                                            <div class="col s4 weapon-container"><img class="gun-icons-trials tooltipped" data-position="right" data-delay="50" data-tooltip="<%= x["Character Items"]["Chest Armor"]["Item Name"] %>" src=<%= x["Character Items"]["Chest Armor"]["Item Icon"] %> alt=""></div>
+                                        </div><!--CLOSE NESTED ROW-->
+                                    </div><!--CLOSE FIRST COLUMN-->
+                                </div><!--CLOSE GUN PICTURES ROW-->
+
+
+                        <!--CLOSE GEAR INFORMATION-->
+
+
+                                
+                            </li><!--CLOSE GEAR SLIDE-->
+
+
+                            </ul>
+                        </div><!--CLOSE SLIDER-->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
+
+
+
+        <!--OPEN SECTION INFORMATION-->
+
+
+
+                <div class="section trials-section-fix trials-card-background" style="width: 103%; margin-left: -1.5%;">
+
+
+                        <div class="row"><!--OPEN HEADER ROW-->
+                            <div class="col s6 center-align text-white">BADGES<hr style="height: 3px;"></div><!--CLOSE COLUMN-->
+                            <div class="col s6 center-align text-white">CALLOUTS<hr style="height: 3px;"></div><!--CLOSE COLUMN-->
+                        </div><!--CLOSE HEADER ROW-->
+                        
+
+                        <div class="row left-align"><!--OPEN CONTENT ROW-->
+
+                            <div class="col s6 left-align">
+                                
+                                <div class="chip chip-trials">
+                                    <img class="mini-weapon-icons truncate" src="https://vignette3.wikia.nocookie.net/destinypedia/images/5/54/Sniper_Rifle_Loader_perk_icon.png/revision/latest?cb=20160730002730" alt="sniper">
+                                    Sniper
+                                </div>
+
+                                <div class="chip chip-trials">
+                                    <img class="mini-weapon-icons truncate" src="https://vignette3.wikia.nocookie.net/destinypedia/images/6/68/Hand_Cannon_Loader_icon.png/revision/latest?cb=20150909081128" alt="Contact Person">
+                                    Cannon
+                                </div>
+
+                                <div class="chip chip-trials">
+                                    <img class="mini-weapon-icons truncate" src="https://vignette2.wikia.nocookie.net/destinypedia/images/2/22/Fastball_icon.png/revision/latest?cb=20150909081131" alt="Contact Person">
+                                    Grenades
+                                </div>
+
+                                <div class="chip chip-trials">
+                                    <img class="mini-weapon-icons truncate" src="https://vignette3.wikia.nocookie.net/destinypedia/images/5/54/Sniper_Rifle_Loader_perk_icon.png/revision/latest?cb=20160730002730" alt="Marksman">
+                                    Marksman
+                                </div>
+                            
+                            </div><!--CLOSE BADGES COLUMN-->
+
+
+
+
+
+                            <div class="col s6 center-align">
+                            <table> 
+                            <tr> 
+                                <th></th>
+                                <th class="center-align table-header-trials">WK</th>
+                                <th class="center-align table-header-trials">YR</th>
+                            </tr>
+                            <tr> 
+                                <th class="center-align table-header-trials">KD</th>
+                                <th class="trials-table-stats center-align">?</th>
+                                <th class="trials-table-stats center-align"><%= x["character_stats"]["kd_ratio"] %></th>
+                            </tr>
+                            <tr> 
+                                <th class="center-align table-header-trials">KA/D</th>
+                                <th class="trials-table-stats center-align">?</th>
+                                <th class="trials-table-stats center-align"><%= x["character_stats"]["kad_ratio"] %></th>
+                            </tr>
+                            <tr> 
+                                <th class="center-align table-header-trials">ELO</th>
+                                <th class="trials-table-stats center-align">?</th>
+                                <th class="trials-table-stats center-align"><%= x["character_stats"]["elo"]["elo"] %></th>
+                            </tr>
+
+                            </table>
+
+
+                            </div><!--CLOSE CALLOUTS COLUMN-->
+
+
+                        </div><!--CLOSE CONTENT ROW-->
+
+
+                </div><!--CLOSE SECTION-->
+
+
+
+
+        <!--CLOSE SECTION INFORMATION-->
+
+
+
+
+
+         <!--OPEN SECOND SECTION INFORMATION-->
+
+
+
+            <div class="section white"> <!--OPEN SECOND SECTION-->
+            
+                    <div class="row"> <!--OPEN ROW-->
+                        <div class="col s12 player-reputation-trials center-align">Player Reputation</div>
+
+
+                        <div class="col s12 center-align"> 
+                            <% if !@user.nil? %>     
+                                <% total = @user.votes_for + @user.votes_against %>      
+                                <% rep =  total != 0  ? ((@user.votes_for / total).round(1) * 100) : "0" %>
+                                <% if current_user.voted_for?(@user) %>
+                                <%= link_to users_upvote_path(:voter => @user), method: :post, class: "waves-effect waves-light btn disabled" do %>
+                                    <i class="material-icons pulsse">thumb_up</i>
+                                <% end %>
+
+                                <%= link_to users_unvote_path(:voter => @user), method: :post, class: "waves-effect waves-light btn pulse" do %>
+                                    <i class="material-icons">cancel</i>
+                                <% end %>
+
+                                <%= link_to users_downvote_path(:voter => @user), method: :post, class: "waves-effect waves-light btn disabled" do %>
+                                    <i class="material-icons pulse">thumb_down</i>
+                                <% end %>
+                                <% else %>
+                                <%= link_to users_upvote_path(:voter => @user), method: :post, class: "waves-effect waves-light btn pulse" do %>
+                                    <i class="material-icons">thumb_up</i>
+                                <% end %>
+
+                                <%= link_to users_unvote_path(:voter => @user), method: :post, class: "waves-effect waves-light btn disabled" do %>
+                                    <i class="material-icons">cancel</i>
+                                <% end %>
+
+                                <%= link_to users_downvote_path(:voter => @user), method: :post, class: "waves-effect waves-light btn pulse" do %>
+                                    <i class="material-icons">thumb_down</i>
+                                <% end %>
+                                <% end %>
+                            <% end %>
+                        </div><!--CLOSE COLUMN-->
+                    
+                    </div><!--CLOSE ROW-->
+
+            </div><!--CLOSE SECOND SECTION-->
+
+
+
+        <!--OPEN SECOND SECTION INFORMATION-->
+
+
+
+
+
+                <div class="section trials-card-background" style="background-color: #f6f6f6; width: 103%; margin-left: -1.5%;">
+                    <div class="row">
+                        <div class="col s12">
+                        
+                        </div><!--CLOSE COLUMN-->
+                    
+                    </div><!--CLOSE ROW-->
+
+                </div><!--CLOSE SECTION-->
+
+
+
+        <!--CLOSE SECTION INFORMATION-->
+
+
+</div><!--CLOSE FIRST CHARACTER--> 
+
+
+
+<% end %>
+<% end %>

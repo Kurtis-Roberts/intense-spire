@@ -1,65 +1,68 @@
 
-<% @character_races = {0 => "Titan", 1 => "Hunter", 2 => "Warlock"} %>
-<% @character_images = {
-    0 => "https://assets.tentonhammer.com/guides/attached_images/000/000/188/medium/destiny-titan-hero-image.jpg?1468380213", 
-    1 => "http://oyster.ignimgs.com/mediawiki/apis.ign.com/destiny/thumb/2/2a/Hunter.jpg/468px-Hunter.jpg", 
-    2 => "http://oyster.ignimgs.com/mediawiki/apis.ign.com/destiny/thumb/6/6b/Warlock.jpg/468px-Warlock.jpg"
-  }
-%>
-
-<section class="hero is-dark is-bold">
-  <!-- Hero header: will stick at the top -->
-  <div class="hero-head"> 
-
-  </div>
-
-  <!-- Hero content: will be in the middle -->
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
+  <% @character_races = {0 => "Titan", 1 => "Hunter", 2 => "Warlock"} %>
+  <% @character_images = {
+      0 => "https://assets.tentonhammer.com/guides/attached_images/000/000/188/medium/destiny-titan-hero-image.jpg?1468380213", 
+      1 => "http://oyster.ignimgs.com/mediawiki/apis.ign.com/destiny/thumb/2/2a/Hunter.jpg/468px-Hunter.jpg", 
+      2 => "http://oyster.ignimgs.com/mediawiki/apis.ign.com/destiny/thumb/6/6b/Warlock.jpg/468px-Warlock.jpg"
+    }
+  %>
+  <div class="container" style="width: 100%" >
+    <section class="hero is-medium is-dark is-bold post-header-background hide-on-med-and-down">
+      <div class="hero-body">
+        <div class="container" style="margin: 0;">
+          <h1 class="title hero">
             <%= @user.display_name %>
           </h1>
           <h2 class="subtitle profile">
-            Trials of Osiris
+            Player Profile (Destiny 1)
           </h2>
+        </div>
+      </div>
+    </section>
+
+    <div class="row" style="margin-left: 0 !important; margin-right: 0 !important; margin-bottom: -4% !important;">
+      <div class="col s12" style="padding: 0 !important; margin-bottom: -2%;">
+        <ul class="tabs light-gradient">          
+          <li class="tab col s3 active"><a href="#trials" style="color: #363636; font-weight: 600;">Trials of Osiris</a></li>
+          <li class="tab col s3"><a href="#raids" style="color: #363636; font-weight: 600;">Raids</a></li>
+          <li class="tab col s3"><a href="#pvp" style="color: #363636; font-weight: 600;">PVP</a></li>
+          <li class="tab col s3"><a href="#profile" style="color: #363636; font-weight: 600;">Profile</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <!-- Hero footer: will stick at the bottom -->
-  <div class="hero-foot">
-    <nav class="tabs is-boxed is-fullwidth">
-      <div class="container">
-        
+  <div class="container" style="width: 85%">
+    <div id="profile">
+      <%= render 'shared/profile' %>
+    </div>
+    <div id="trials" >
+      <% if (@user == current_user) %>
+        <div style="display: none !important"> <%=  link_to "", profile_path, remote: true, id: "load-link" %></div>
+      <% else %>
+        <div style="display: none !important"> <%=  link_to "", user_path, remote: true, id: "load-link" %></div>
+      <% end %>
+      <div id="trials-data">
+          <div class="row">
+            <div class="col s12 center-align" style="margin-top: 10%;">
+                <%= image_tag  "ajax-loader.gif" %>
+            </div>
+          </div> 
       </div>
-    </nav>
+    </div>
+    <div id="raids" >
+        <div id="raid-data">
+            <div class="row">
+              <div class="col s12 center-align" style="margin-top: 10%;">
+                  <%= image_tag  "ajax-loader.gif" %>
+              </div>
+            </div> 
+        </div>
+    </div>
+    <div id="pvp" >
+        <%= render 'shared/pvp_stats' %>
+    </div>
   </div>
-        
-</section>
-
-
-
-<div class="row">
-  <div class="col s12">
-    <ul class="tabs">
-      <li class="tab col s3"><a href="#trials">Trials of Osiris</a></li>
-      <li class="tab col s3"><a href="#raids">Raids</a></li>
-      <li class="tab col s3"><a href="#pvp">PVP</a></li>
-      <li class="tab col s3"><a href="#profile">Profile</a></li>
-    </ul>
-  </div>
-  <div id="profile" class="col s12">
-    <%= render 'shared/profile' %>
-  </div>
-   <div id="trials" class="col s12">
-    <%= render 'shared/trials_stats' %>
-  </div>
-  <div id="raids" class="col s12">
-    <%= render 'shared/raids_stats' %>
-  </div>
-  <div id="pvp" class="col s12">
-      <%= render 'shared/pvp_stats' %>
-  </div>
-</div>
 
 
 
